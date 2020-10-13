@@ -1,0 +1,125 @@
+@import './variables';
+@import './reset';
+
+:root {
+    font-size: 62.5%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: $body-bg;
+    color: $body-color;
+    margin: 0;
+    font-size: 1.6rem;
+    font-family: $font-family-base;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    color: $body-color;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.header__title {
+    font-family: NorthAvellion, Arial, sans-serif;
+    font-size: 12rem;
+}
+
+.header__subtitle {
+    bottom: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.header__subtitle span:first-child {
+    position: relative;
+    right: -20px;
+}
+
+.header__subtitle span:last-child {
+    position: relative;
+    right: -45px;
+}
+
+header nav ul {
+    text-align: center;
+    font-size: 3rem;
+    width: 66.6vw;
+    min-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+header nav a {
+    display: block;
+    margin: 0.5rem;
+}
+
+.header__separator, main {
+    width: 66.6vw;
+    min-width: 30rem;
+    margin: 1rem;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .header__title {
+        font-size: 20rem;
+    }
+    .header__subtitle {
+        font-size: 2rem;
+    }
+    .header__subtitle span:last-child {
+        right: -80px;
+    }    
+    header nav ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

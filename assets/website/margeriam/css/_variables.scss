@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Athelas';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: local('Athelas Regular'), url('../fonts/Athelas-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Athelas';
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: local('Athelas Italic'), url('../fonts/Athelas-Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Athelas';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: local('Athelas Bold'), url('../fonts/Athelas-Bold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Athelas';
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: local('Athelas Bold Italic'), url('../fonts/Athelas-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'RankingCaps';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: local('Ranking Caps'), url('../fonts/Rankings-Caps.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NorthAvellion';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: local('North Avellion'), url('../fonts/North-Avellion.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'AmericanTypewriter';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: local('American Typewriter'), url('../fonts/AmericanTypewriter.ttf') format('truetype');
+}
+
+$body-bg: #f3f3f3;
+$body-color: #000000;
+
+$font-family-base: AmericanTypewriter, Arial, sans-serif;
+$font-family-title: NorthAvellion, Arial, sans-serif;

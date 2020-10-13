@@ -36,11 +36,37 @@
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="article" type="text_editor">
+        <block name="content" default-type="text">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Content</title>
             </meta>
-        </property>
+            <types>
+                <type name="text">
+                    <meta>
+                        <title lang="en">Text</title>
+                    </meta>
+                    <properties>
+                        <property name="text" type="text_editor">
+                            <meta>
+                                <title lang="en">Text</title>
+                            </meta>
+                            <tag name="sulu.search.field" role="description" />
+                        </property>
+                    </properties>
+                </type>
+                <type name="imageGallery">
+                    <meta>
+                        <title lang="en">Image Gallery</title>
+                    </meta>
+                    <properties>
+                        <property name="images" type="media_selection">
+                            <meta>
+                                <title lang="en">Images</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
     </properties>
 </template>

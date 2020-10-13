@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block meta %}
+        {% set seo = extension.seo|default([]) %}
+        {% set seoTitle = seo.title|default(content.title|default()) %}
+        {% set seoTitle = seoTitle ~ ' | Margeriam' %}
+        {% set seo = seo|merge({'title': seoTitle}) %}
         {% include "@SuluWebsite/Extension/seo.html.twig" with {
-            "seo": extension.seo|default([]),
+            "seo": seo,
             "content": content|default([]),
             "urls": urls|default([]),
             "shadowBaseLocale": shadowBaseLocale|default(),
@@ -15,47 +19,55 @@
         } %}
     {% endblock %}
 
-    {% block style %}{% endblock %}
+    {% block style %}
+        {{ encore_entry_link_tags('margeriam_app') }}
+    {% endblock %}
 </head>
 <body>
     <header>
         {% block header %}
+            <div class="header__container">
+                <p class="header__title">
+                    Margeriam
+                </p>
+                <p class="header__subtitle">
+                    <span>
+                        Photography
+                    </span>
+                    <span>
+                        for businesses and brands
+                    </span>
+                </p>
+            </div>
             <nav>
                 <ul>
                     <li>
-                        <a href="{{ sulu_content_root_path() }}">Homepage</a>
+                        <a rel="prefetch" title="Portfolio" href="{{ sulu_content_root_path() }}">Portfolio</a>
                     </li>
 
                     {% for item in sulu_navigation_root_tree('main') %}
                         <li>
                             <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
-                               title="{{ item.title }}">{{ item.title }}</a>
+                               title="{{ item.title }}"
+                               rel="prefetch">{{ item.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </nav>
+            <img class="header__separator" src="{{ asset('build/website/margeriam/img/arabesk.svg') }}" alt="Separator">
         {% endblock %}
     </header>
-
-    <form action="{{ path('sulu_search.website_search') }}" method="GET">
-        <input name="q" type="text" placeholder="Search"/>
-        <input type="submit" value="Go"/>
-    </form>
-
-    <section id="content">
+    <main>
         {% block content %}{% endblock %}
-    </section>
+    </main>
+    {#<footer>#}
+        {#{% block footer %}#}
+            {#<p>Copyright {{ 'now'|date('Y') }} SULU</p>#}
+        {#{% endblock %}#}
+    {#</footer>#}
 
-    <aside>
-        {% block aside %}{% endblock %}
-    </aside>
-
-    <footer>
-        {% block footer %}
-            <p>Copyright {{ 'now'|date('Y') }} SULU</p>
-        {% endblock %}
-    </footer>
-
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('margeriam_app') }}
+    {% endblock %}
 </body>
 </html>

@@ -1,7 +1,48 @@
 {% extends "base.html.twig" %}
 
-{% block content %}
-    <h1>{{ content.title }}</h1>
+{% set containsGallery = false %}
+{% for block in content.content %}
+    {% if block.type == 'imageGallery' %}
+        {% set containsGallery = true %}
+    {% endif %}
+{% endfor %}
 
-    {{ content.article|raw }}
+{% block style %}
+    {{ parent() }}
+    {% if containsGallery %}
+        {{ encore_entry_link_tags('margeriam_gallery') }}
+        <style>
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 5rem 0;
+            }
+            .gallery figure {
+                margin: 0.5rem;
+                max-width: calc(100% - 1rem);
+            }
+            .gallery figure img {
+                max-width: 100%;
+            }
+            .gallery figcaption {
+                display: none;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="hidden">{{ content.title }}</h1>
+
+    {% for block in content.content %}
+        {% include 'types/' ~ block.type ~ '.html.twig' with {'block': block} only %}
+    {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% if containsGallery %}
+        {{ encore_entry_script_tags('margeriam_gallery') }}
+    {% endif %}
 {% endblock %}
