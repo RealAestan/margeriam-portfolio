@@ -23,7 +23,7 @@
         {{ encore_entry_link_tags('margeriam_app') }}
     {% endblock %}
 </head>
-<body>
+<body data-sentry="{{ sentry_dsn }}">
     <header>
         {% block header %}
             <div class="header__container">
@@ -60,11 +60,11 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-    {#<footer>#}
-        {#{% block footer %}#}
-            {#<p>Copyright {{ 'now'|date('Y') }} SULU</p>#}
-        {#{% endblock %}#}
-    {#</footer>#}
+    <footer>
+        {% block footer %}
+            <p>Copyright {{ 'now'|date('Y') }} Margeriam</p>
+        {% endblock %}
+    </footer>
 
     {% block javascripts %}
         {{ encore_entry_script_tags('margeriam_app') }}

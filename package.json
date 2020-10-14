@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@sentry/browser": "^5.26.0",
         "@symfony/webpack-encore": "^0.30.0",
         "@tsconfig/recommended": "^1.0.1",
         "@types/lozad": "^1.9.0",
