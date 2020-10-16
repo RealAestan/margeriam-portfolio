@@ -24,6 +24,23 @@
     {% endblock %}
 </head>
 <body data-sentry="{{ sentry_dsn }}">
+    <ul class="language-switcher">
+        {%- if urls|length > 1 -%}
+            {%- for locale, url in urls -%}
+                <li>
+                    {% if app.request.locale|split('_')[0] == locale %}
+                        <span>
+                            {{ locale }}
+                        </span>
+                    {% else %}
+                        <a href="{{ sulu_content_path(url, null, locale) }}" rel="prefetch">
+                            {{ locale }}
+                        </a>
+                    {% endif %}
+                </li>
+            {%- endfor -%}
+        {%- endif -%}
+    </ul>
     <header>
         {% block header %}
             <div class="header__container">
@@ -49,6 +66,7 @@
                         <li>
                             <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
                                title="{{ item.title }}"
+                               target="{% if item.nodeType == 4 %}_blank{% else %}_self{% endif %}"
                                rel="prefetch">{{ item.title }}</a>
                         </li>
                     {% endfor %}
