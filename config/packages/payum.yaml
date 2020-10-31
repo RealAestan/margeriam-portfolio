@@ -1,0 +1,12 @@
+payum:
+    security:
+        token_storage:
+            Acme\PaymentBundle\Entity\PaymentSecurityToken: { doctrine: orm }
+
+    storages:
+        Acme\PaymentBundle\Entity\Order: { doctrine: orm }
+        Acme\PaymentBundle\Entity\Payment: { doctrine: orm }
+
+    gateways:
+        stripe:
+            factory: stripe_checkout
