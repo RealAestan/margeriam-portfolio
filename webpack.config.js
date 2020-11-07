@@ -23,6 +23,15 @@ Encore
 		// only copy files matching this pattern
 		pattern: /\.(png|jpg|jpeg|svg)$/
 	})
+	.copyFiles({
+		from: './assets/website/margeriam/meta',
+
+		// optional target path, relative to the output dir
+		to: 'margeriam/meta/[path][name].[ext]',
+
+		// if versioning is enabled, add the file hash too
+		//to: 'images/[path][name].[hash:8].[ext]',
+	})
 	// only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 

@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="theme-color" content="#fff">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/website/margeriam/meta/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/website/margeriam/meta/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/website/margeriam/meta/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('build/website/margeriam/meta/manifest.json') }}">
+    <link rel="mask-icon" href="{{ asset('build/website/margeriam/meta/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-config" content="{{ asset('build/website/margeriam/meta/browserconfig.xml') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
 
     {% block meta %}
         {% set seo = extension.seo|default([]) %}
@@ -59,7 +68,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a rel="prefetch" title="Portfolio" href="{{ sulu_content_root_path() }}">Portfolio</a>
+                        <a rel="prefetch" title="Portfolio" href="{{ sulu_content_root_path() }}">{{ 'Portfolio'|trans }}</a>
                     </li>
 
                     {% for item in sulu_navigation_root_tree('main') %}
