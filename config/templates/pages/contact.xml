@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>contact</key>
+
+    <view>pages/contact</view>
+    <controller>App\Controller\Website\CustomController::indexAction</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Contact</title>
+        <title lang="de">Kontakt</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="de">Adresse</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <block name="content" default-type="text">
+            <meta>
+                <title lang="en">Content</title>
+            </meta>
+            <types>
+                <type name="text">
+                    <meta>
+                        <title lang="en">Text</title>
+                    </meta>
+                    <properties>
+                        <property name="text" type="text_editor">
+                            <meta>
+                                <title lang="en">Text</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+                <type name="imageGallery">
+                    <meta>
+                        <title lang="en">Image Gallery</title>
+                    </meta>
+                    <properties>
+                        <property name="images" type="media_selection">
+                            <meta>
+                                <title lang="en">Images</title>
+                            </meta>
+                            <params>
+                                <param name="types" value="image,video"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</template>

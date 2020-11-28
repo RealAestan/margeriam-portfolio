@@ -9,6 +9,30 @@
         <source>Portfolio</source>
         <target>Портфолио</target>
       </trans-unit>
+      <trans-unit id="EmailAddress" resname="Email address">
+        <source>Email address</source>
+        <target>Email address</target>
+      </trans-unit>
+      <trans-unit id="Message" resname="Message">
+        <source>Message</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="SendMessage" resname="Send message">
+        <source>Send message</source>
+        <target>Send message</target>
+      </trans-unit>
+      <trans-unit id="message_success" resname="message_success">
+        <source>message_success</source>
+        <target>Your message was sent with success.</target>
+      </trans-unit>
+      <trans-unit id="message_error" resname="message_error">
+        <source>message_error</source>
+        <target>An unknown error occured, please try again later.</target>
+      </trans-unit>
+      <trans-unit id="message_warning" resname="message_warning">
+        <source>message_warning</source>
+        <target>You already sent a message. You can send a message every 5 minutes.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
