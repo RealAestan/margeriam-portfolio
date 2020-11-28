@@ -12,10 +12,10 @@
 
         <scale x="400" y="500"/>
         <options>
-            <option name="jpeg_quality">90</option>
-            <option name="webp_quality">90</option>
+            <option name="jpeg_quality">100</option>
+            <option name="webp_quality">100</option>
             <!--9 is maximum-->
-            <option name="png_compression_level">8</option>
+            <option name="png_compression_level">9</option>
         </options>
     </format>
 
