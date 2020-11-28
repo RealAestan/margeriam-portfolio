@@ -28,6 +28,7 @@ class ContactController extends AbstractController
                 $email->setTo('ms.valeri@protonmail.com');
                 $email->setSubject($contact->getSubject());
                 $email->setFrom($contact->getEmailAddress());
+                $email->setSender($contact->getEmailAddress());
                 $email->setBody($contact->getMessage());
                 $result = $mailer->send($email);
                 if ($result !== 0) {
