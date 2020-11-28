@@ -11,6 +11,12 @@
         </meta>
 
         <scale x="400" y="500"/>
+        <options>
+            <option name="jpeg_quality">90</option>
+            <option name="webp_quality">90</option>
+            <!--9 is maximum-->
+            <option name="png_compression_level">8</option>
+        </options>
     </format>
 
     <!--
