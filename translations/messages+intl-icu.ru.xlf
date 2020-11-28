@@ -11,27 +11,31 @@
       </trans-unit>
       <trans-unit id="EmailAddress" resname="Email address">
         <source>Email address</source>
-        <target>Email address</target>
+        <target>Адрес электронной почты</target>
+      </trans-unit>
+      <trans-unit id="Subject" resname="Subject">
+        <source>Subject</source>
+        <target>Тема</target>
       </trans-unit>
       <trans-unit id="Message" resname="Message">
         <source>Message</source>
-        <target>Message</target>
+        <target>Сообщение</target>
       </trans-unit>
       <trans-unit id="SendMessage" resname="Send message">
         <source>Send message</source>
-        <target>Send message</target>
+        <target>Отправить сообщение</target>
       </trans-unit>
       <trans-unit id="message_success" resname="message_success">
         <source>message_success</source>
-        <target>Your message was sent with success.</target>
+        <target>Ваше сообщение было успешно отправлено.</target>
       </trans-unit>
       <trans-unit id="message_error" resname="message_error">
         <source>message_error</source>
-        <target>An unknown error occured, please try again later.</target>
+        <target>Произошла неизвестная ошибка, пожалуйста, повторите попытку позже.</target>
       </trans-unit>
       <trans-unit id="message_warning" resname="message_warning">
         <source>message_warning</source>
-        <target>You already sent a message. You can send a message every 5 minutes.</target>
+        <target>Вы уже отправили сообщение. Повторите поптытку через 5 минут.</target>
       </trans-unit>
     </body>
   </file>

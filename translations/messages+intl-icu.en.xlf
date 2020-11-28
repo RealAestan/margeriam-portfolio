@@ -13,6 +13,10 @@
         <source>Email address</source>
         <target>Email address</target>
       </trans-unit>
+      <trans-unit id="Subject" resname="Subject">
+        <source>Subject</source>
+        <target>Subject</target>
+      </trans-unit>
       <trans-unit id="Message" resname="Message">
         <source>Message</source>
         <target>Message</target>

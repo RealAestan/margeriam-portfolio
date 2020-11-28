@@ -26,6 +26,7 @@ class ContactController extends AbstractController
             if (!$session->has('date_allow_message') || $session->get('date_allow_message') < new \DateTime()) {
                 $email = new \Swift_Message();
                 $email->setTo('ms.valeri@protonmail.com');
+                $email->setSubject($contact->getSubject());
                 $email->setFrom($contact->getEmailAddress());
                 $email->setBody($contact->getMessage());
                 $result = $mailer->send($email);

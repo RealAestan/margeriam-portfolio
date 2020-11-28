@@ -7,6 +7,7 @@ namespace App\Entity;
 class Contact
 {
     protected $emailAddress;
+    protected $subject;
     protected $message;
 
     public function getEmailAddress()
@@ -17,6 +18,17 @@ class Contact
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+        return $this;
+    }
+
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
         return $this;
     }
 
