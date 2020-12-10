@@ -10,7 +10,7 @@
             <title lang="en">Gallery</title>
         </meta>
 
-        <scale x="400" y="500"/>
+        <scale x="320" y="400"/>
         <options>
             <option name="jpeg_quality">100</option>
             <option name="webp_quality">100</option>
