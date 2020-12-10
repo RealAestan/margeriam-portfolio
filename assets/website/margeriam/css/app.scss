@@ -76,7 +76,6 @@ header {
 header nav ul {
     text-align: center;
     font-size: 3rem;
-    width: 75vw;
     min-width: 30rem;
     display: flex;
     flex-direction: column;
@@ -88,8 +87,11 @@ header nav a {
     margin: 0.5rem;
 }
 
-.header__separator, main {
+.header__separator, main, header nav ul {
     width: 75vw;
+}
+
+.header__separator, main {
     min-width: 30rem;
     margin: 1rem;
 }
