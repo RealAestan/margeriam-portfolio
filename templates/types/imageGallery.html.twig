@@ -1,7 +1,7 @@
 <div class="gallery js-gallery" itemscope itemtype="http://schema.org/ImageGallery">
     {% for image in block.images %}
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a rel="prefetch" href="{{ image.url }}" itemprop="contentUrl">
+            <a href="{{ image.url }}" itemprop="contentUrl">
                 <picture>
                     <source srcset="{{ image.thumbnails['4x5.webp'] }}" type="image/webp">
                     <source srcset="{{ image.thumbnails['4x5.jpg'] }}" type="image/jpeg">
