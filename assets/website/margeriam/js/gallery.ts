@@ -92,7 +92,7 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
             if(linkEl.children.length > 0) {
                 // <img> thumbnail element, retrieving thumbnail url
                 const msrc = linkEl.children[0].getAttribute('src');
-                item.msrc = msrc ?? '';
+                item.msrc = msrc ? msrc : '';
             } 
 
             item.el = figureEl; // save link to element for getThumbBoundsFn
@@ -191,10 +191,11 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
 
         items = await parseThumbnailElements(galleryElement);
 
+        const uid = galleryElement.getAttribute('data-pswp-uid');
         // define options (if needed)
         options = {
             // define gallery index (for URL)
-            galleryUID: parseInt(galleryElement.getAttribute('data-pswp-uid') ?? '0', 10),
+            galleryUID: parseInt(uid ? uid : '0', 10),
             getThumbBoundsFn: function(index: number) {
                 const el = items[index].el;
                 // See Options -> getThumbBoundsFn section of documentation for more info
@@ -207,6 +208,7 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
                 }
                 return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
             },
+            preload: [1, 1],
             galleryPIDs: true,
             shareButtons: [
                 {id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u='},
