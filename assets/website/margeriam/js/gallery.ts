@@ -9,7 +9,6 @@ import 'photoswipe/dist/default-skin/default-skin.css';
 
 interface PhotoSwipeItem extends PhotoSwipeUI_Default.Item {
     el?: HTMLElement;
-    pid?: number | null;
 }
 
 interface PhotoSwipeOptions extends PhotoSwipeUI_Default.Options {
