@@ -8,7 +8,7 @@
                     <noscript>
                         <img loading=lazy src="{{ image.thumbnails['4x5'] }}" itemprop="thumbnail" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}" />
                     </noscript>
-                    <img class="lazyload" loading=lazy width="320" height="400" data-src="{{ image.thumbnails['4x5'] }}" itemprop="thumbnail" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}" />
+                    <img class="lazyload" loading=lazy width="320" height="auto" data-src="{{ image.thumbnails['4x5'] }}" itemprop="thumbnail" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}" />
                 </picture>
             </a>
             <figcaption itemprop="caption description">
