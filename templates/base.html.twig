@@ -28,8 +28,40 @@
         } %}
     {% endblock %}
 
+    {% set containsGallery = false %}
+    {% for block in content.content %}
+        {% if block.type == 'imageGallery' %}
+            {% set containsGallery = true %}
+        {% endif %}
+    {% endfor %}
     {% block style %}
         {{ encore_entry_link_tags('margeriam_app') }}
+        {% if containsGallery %}
+            {{ encore_entry_link_tags('margeriam_gallery') }}
+            <style>
+                .gallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin: 5rem 0;
+                }
+                .gallery figure {
+                    margin: 0.5rem;
+                    max-width: calc(100% - 1rem);
+                }
+                .gallery figure img {
+                    max-width: 100%;
+                }
+                .gallery figcaption {
+                    display: none;
+                }
+                @media (min-width: 576px) {
+                    .gallery figure img {
+                        max-width: 320px;
+                    }
+                }
+            </style>
+        {% endif %}
     {% endblock %}
 </head>
 <body data-sentry="{{ sentry_dsn }}">
@@ -85,7 +117,13 @@
         {% endblock %}
     </header>
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}
+            <h1 class="hidden">{{ content.title }}</h1>
+
+            {% for block in content.content %}
+                {% include 'types/' ~ block.type ~ '.html.twig' with {'block': block} only %}
+            {% endfor %}
+        {% endblock %}
     </main>
     <footer>
         {% block footer %}
@@ -95,6 +133,22 @@
 
     {% block javascripts %}
         {{ encore_entry_script_tags('margeriam_app') }}
+        {% if containsGallery %}
+            {{ encore_entry_script_tags('margeriam_gallery') }}
+            <script>
+				if ('loading' in HTMLImageElement.prototype) {
+					const images = document.querySelectorAll('img[loading="lazy"]');
+					images.forEach(img => {
+						img.src = img.dataset.src;
+					});
+				} else {
+					// Dynamically import the LazySizes library
+					const script = document.createElement('script');
+					script.src = {{ asset('build/website/margeriam/lazysizes/lazysizes.min.js') }};
+					document.body.appendChild(script);
+				}
+            </script>
+        {% endif %}
     {% endblock %}
 </body>
 </html>
