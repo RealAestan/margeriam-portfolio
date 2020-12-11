@@ -23,10 +23,15 @@
                 max-width: calc(100% - 1rem);
             }
             .gallery figure img {
-                max-width: 320px;
+                max-width: 100%;
             }
             .gallery figcaption {
                 display: none;
+            }
+            @media (min-width: 576px) {
+                .gallery figure img {
+                    max-width: 320px;
+                }
             }
         </style>
     {% endif %}
