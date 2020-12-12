@@ -209,6 +209,7 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
             //     }
             //     return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
             // },
+            preload: [2, 2],
             galleryPIDs: true,
             shareButtons: [
                 {id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u='},
