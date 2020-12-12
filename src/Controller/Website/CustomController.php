@@ -35,25 +35,31 @@ class CustomController extends DefaultController
         if (key_exists('content', $attributes) && key_exists('content', $attributes['content'])) {
             foreach ($attributes['content']['content'] as $key => $block) {
                 if ($block['type'] === 'imageGallery') {
-                    $images = [];
-                    /** @var Media $image */
-                    foreach ($block['images'] as $image) {
-                        try {
-                            $fileVersion = $image->getFileVersion();
-                        } catch (FileVersionNotFoundException $exception) {
-                            continue;
+                    $itemGallery = $this->cache->getItem($attributes['id'].'_'.$key.'_gallery');
+                    if (!$itemGallery->isHit()) {
+                        $images = [];
+                        /** @var Media $image */
+                        foreach ($block['images'] as $image) {
+                            try {
+                                $fileVersion = $image->getFileVersion();
+                            } catch (FileVersionNotFoundException $exception) {
+                                continue;
+                            }
+                            $storageOptions = $fileVersion->getStorageOptions();
+                            $item = $this->cache->getItem($storageOptions['fileName'].'_dimensions');
+                            if (!$item->isHit()) {
+                                $path = \implode('/', \array_filter([$localPath, $storageOptions['segment'], $storageOptions['fileName']]));
+                                $dimensions = getimagesize($path);
+                                $item->set($dimensions);
+                                $this->cache->save($item);
+                            }
+                            $dimensions = $item->get();
+                            $images[] = new \App\Entity\Media($image, $dimensions[0], $dimensions[1]);
                         }
-                        $storageOptions = $fileVersion->getStorageOptions();
-                        $item = $this->cache->getItem($storageOptions['fileName'].'_dimensions');
-                        if (!$item->isHit()) {
-                            $path = \implode('/', \array_filter([$localPath, $storageOptions['segment'], $storageOptions['fileName']]));
-                            $dimensions = getimagesize($path);
-                            $item->set($dimensions);
-                            $this->cache->save($item);
-                        }
-                        $dimensions = $item->get();
-                        $images[] = new \App\Entity\Media($image, $dimensions[0], $dimensions[1]);
+                        $itemGallery->set($images);
+                        $this->cache->save($itemGallery);
                     }
+                    $images = $itemGallery->get();
                     $attributes['content']['content'][$key]['images'] = $images;
                 }
             }
