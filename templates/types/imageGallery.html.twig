@@ -1,8 +1,9 @@
 <div class="gallery js-gallery" itemscope itemtype="http://schema.org/ImageGallery">
     {% for image in block.images %}
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            {{ dump(image.fileVersion.properties) }}
-            {{ image.fileVersion.properties }}
+            {% if image.fileVersion.properties %}
+                test
+            {% endif %}
             <a href="{{ image.url }}" {% if image.fileVersion.properties.width is defined and image.fileVersion.properties.height is defined %}data-size="{{ image.fileVersion.properties.width }}x{{ image.fileVersion.properties.height }}"{% endif %} itemprop="contentUrl">
                 <picture>
                     <source srcset="{{ image.thumbnails['4x5.webp'] }}" type="image/webp">
