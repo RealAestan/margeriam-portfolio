@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="sulu_media.media_manager" class="App\Manager\MediaManager" public="true">
+            <argument type="service" id="sulu.repository.media" />
+            <argument type="service" id="sulu_media.collection_repository" />
+            <argument type="service" id="sulu.repository.user" />
+            <argument type="service" id="sulu.repository.category"/>
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="sulu_media.storage" />
+            <argument type="service" id="sulu_media.file_validator" />
+            <argument type="service" id="sulu_media.format_manager" />
+            <argument type="service" id="sulu_tag.tag_manager" />
+            <argument type="service" id="sulu_media.type_manager" />
+            <argument type="service" id="sulu.content.path_cleaner" />
+            <argument type="service" id="security.token_storage" on-invalid="null" />
+            <argument type="service" id="sulu_security.security_checker" on-invalid="null" />
+            <argument type="service" id="sulu_media.ffprobe" on-invalid="null" />
+            <argument>%sulu_security.permissions%</argument>
+            <argument type="string">%sulu_media.media_manager.media_download_path%</argument>
+            <argument>%sulu_media.media.max_file_size%</argument>
+            <argument type="service" id="sulu.repository.target_group" on-invalid="null"/>
+        </service>
+    </services>
+</container>

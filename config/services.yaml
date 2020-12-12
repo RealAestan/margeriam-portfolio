@@ -34,3 +34,25 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+#    sulu_media.media_manager:
+#        class: App\Manager\MediaManager
+#        public: true
+#        arguments:
+#            - '@sulu.repository.media'
+#            - '@sulu_media.collection_repository'
+#            - '@sulu.repository.user'
+#            - '@sulu.repository.category'
+#            - '@doctrine.orm.entity_manager'
+#            - '@sulu_media.storage'
+#            - '@sulu_media.file_validator'
+#            - '@sulu_media.format_manager'
+#            - '@sulu_tag.tag_manager'
+#            - '@sulu_media.type_manager'
+#            - '@sulu.content.path_cleaner'
+#            - '@security.token_storage'
+#            - '@sulu_security.security_checker'
+#            - null
+#            - '%sulu_security.permissions%'
+#            - '%sulu_media.media_manager.media_download_path%'
+#            - '%sulu_media.media.max_file_size%'
+#            - null
