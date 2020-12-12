@@ -67,7 +67,7 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
                     let img = await getMeta(href);
                     dimensions = {
                         width: img.width,
-                        height: img.height 
+                        height: img.height
                     };
                 }
             }
@@ -92,7 +92,7 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
                 // <img> thumbnail element, retrieving thumbnail url
                 const msrc = linkEl.children[0].getAttribute('src');
                 item.msrc = msrc ? msrc : '';
-            } 
+            }
 
             item.el = figureEl; // save link to element for getThumbBoundsFn
             items.push(item);
@@ -195,19 +195,20 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
         options = {
             // define gallery index (for URL)
             galleryUID: parseInt(uid ? uid : '0', 10),
-            getThumbBoundsFn: function(index: number) {
-                const el = items[index].el;
-                // See Options -> getThumbBoundsFn section of documentation for more info
-                const thumbnail = el ? el.getElementsByTagName('img')[0] : null, // find thumbnail
-                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                    rect = thumbnail ? thumbnail.getBoundingClientRect() : null;
-
-                if (rect === null) {
-                    return {x: 0, y: pageYScroll, w: 0};
-                }
-                return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
-            },
-            preload: [1, 1],
+            showHideOpacity: true,
+            // getThumbBoundsFn: false,
+            // function(index: number) {
+            //     const el = items[index].el;
+            //     // See Options -> getThumbBoundsFn section of documentation for more info
+            //     const thumbnail = el ? el.getElementsByTagName('img')[0] : null, // find thumbnail
+            //         pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+            //         rect = thumbnail ? thumbnail.getBoundingClientRect() : null;
+            //
+            //     if (rect === null) {
+            //         return {x: 0, y: pageYScroll, w: 0};
+            //     }
+            //     return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
+            // },
             galleryPIDs: true,
             shareButtons: [
                 {id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u='},
