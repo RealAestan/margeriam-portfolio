@@ -37,6 +37,7 @@ class CustomController extends DefaultController
                 if ($block['type'] === 'imageGallery') {
                     $itemGallery = $this->cache->getItem($attributes['id'].'_'.$key.'_gallery');
                     if (!$itemGallery->isHit()) {
+                        die('cc');
                         $images = [];
                         /** @var Media $image */
                         foreach ($block['images'] as $image) {
@@ -46,14 +47,8 @@ class CustomController extends DefaultController
                                 continue;
                             }
                             $storageOptions = $fileVersion->getStorageOptions();
-                            $item = $this->cache->getItem($storageOptions['fileName'].'_dimensions');
-                            if (!$item->isHit()) {
-                                $path = \implode('/', \array_filter([$localPath, $storageOptions['segment'], $storageOptions['fileName']]));
-                                $dimensions = getimagesize($path);
-                                $item->set($dimensions);
-                                $this->cache->save($item);
-                            }
-                            $dimensions = $item->get();
+                            $path = \implode('/', \array_filter([$localPath, $storageOptions['segment'], $storageOptions['fileName']]));
+                            $dimensions = getimagesize($path);
                             $images[] = new \App\Entity\Media($image, $dimensions[0], $dimensions[1]);
                         }
                         $itemGallery->set($images);
