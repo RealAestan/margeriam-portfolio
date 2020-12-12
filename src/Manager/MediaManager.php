@@ -274,6 +274,7 @@ class MediaManager implements MediaManagerInterface
                     // Exception is thrown if the dimension could not be extracted
                 }
             } elseif (\fnmatch('image/*', $mimeType)) {
+                die('cc');
                 $dimensions = getimagesize($uploadedFile->getPathname());
                 $properties['width'] = $dimensions[0];
                 $properties['height'] = $dimensions[1];
