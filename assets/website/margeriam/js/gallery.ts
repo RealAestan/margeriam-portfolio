@@ -209,6 +209,7 @@ const initPhotoSwipeFromDOM = function(gallerySelector: string) {
             //     }
             //     return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
             // },
+            maxSpreadZoom: 1,
             preload: [2, 2],
             galleryPIDs: true,
             shareButtons: [
